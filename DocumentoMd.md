@@ -45,7 +45,7 @@ Para realizar este proyecto, utilizaré principalmente los siguientes
 librerías:
 
 ``` r
-library(haven)          # Para importar datos de formato .dta a R studio
+library(readxl)         # Para importar datos de excel a R studio
 library(dplyr)          # Para manipulación y transformacion de datos
 library(ggrepel)        # Para evitar solapamiento de etiquétas en gráficos
 library(ggplot2)        # Para visualizar datos
@@ -55,3 +55,26 @@ library(FactoMineR)     # Para realizar análisis multivariante PCA,clustering,e
 ```
 
 ### **Importación datos**
+
+Para este proyecto utilizaré la base de datos ***QoG Basic Dataset***,
+publicada en enero de 2026. Este conjunto de datos de tipo
+**transversal** contiene información de las variables más utilizadas de
+la base de datos ***QoG Standard Dataset***, donde la unidad de análisis
+es el país.
+
+``` r
+qog_b26<-read_excel("Datos/qog_bas_cs_jan26.xlsx")
+```
+
+``` r
+dim(qog_b26)
+```
+
+    ## [1] 194 320
+
+El conjunto de datos contiene información sobre ***194*** países y
+***320*** variables. Para fines de este proyecto, no se trabajará con la
+totalidad de las ***320*** variables, sino que se procederá a filtrar
+aquellas más relevantes para el análisis.
+
+### **Limpieza de la base de datos**
